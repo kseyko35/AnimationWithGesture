@@ -25,7 +25,7 @@ namespace AnimationExample
             mImage.GestureRecognizers.Add(new TapGestureRecognizer // Bu sekilde resmimize tap eventi eklemis olduk
             {
                
-                Command = new Command(async (obj) =>
+                Command = new Command(async (obj) => // Farkli animasyonlar eklenebilir.
                 {
                     //while (true)
                     //{
