@@ -26,20 +26,20 @@ namespace AnimationExample
             {
                
                 Command = new Command(async (obj) =>
-                { 
-                    while (true)
-                    {
-                        await mImage.LayoutTo(new Rectangle(1, 150, mImage.Width, mImage.Height), 1250, Easing.SpringIn);
-                        //await mImage.LayoutTo(new Rectangle(1, 100, mImage.Width, mImage.Height), 1250, Easing.SpringIn);
-                        await mImage.RotateXTo(360, 1250, Easing.Linear);
-                        await mImage.RotateXTo(0, 1250, Easing.Linear);
-                    }
-                    //await mImage.ScaleTo(1 , 250, Easing.CubicIn);
-                    //await mImage.ScaleTo(1, 1250, Easing.CubicInOut);
-                    //await mImage.LayoutTo(new Rectangle(1 ,150, mImage.Width, mImage.Height),1250,Easing.SpringIn);
-                    //await mImage.RotateXTo(360, 1250, Easing.Linear);
-                    ////await DisplayAlert("Title", "Ok", "Cancel");
-                    //await mRotateButton.FadeTo(1, 250, Easing.Linear);
+                {
+                    //while (true)
+                    //{
+                    //    await mImage.LayoutTo(new Rectangle(1, 150, mImage.Width, mImage.Height), 1250, Easing.SpringIn);
+                    //    //await mImage.LayoutTo(new Rectangle(1, 100, mImage.Width, mImage.Height), 1250, Easing.SpringIn);
+                    //    await mImage.RotateXTo(360, 1250, Easing.Linear);
+                    //    await mImage.RotateXTo(0, 1250, Easing.Linear);
+                    //}
+                    await mImage.ScaleTo(1, 250, Easing.CubicIn);
+                    await mImage.ScaleTo(1, 1250, Easing.CubicInOut);
+                    await mImage.LayoutTo(new Rectangle(1, 150, mImage.Width, mImage.Height), 1250, Easing.SpringIn);
+                    await mImage.RotateXTo(360, 1250, Easing.Linear);
+                    //await DisplayAlert("Title", "Ok", "Cancel");
+                    await mRotateButton.FadeTo(1, 250, Easing.Linear);
 
                 } ) 
 
