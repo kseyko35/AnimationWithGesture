@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AnimationExample.SecondPage">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Button BackgroundColor="White" ImageSource="imageOfXamarin.png"></Button>
+            <Image Aspect="AspectFit" Grid.Row="1" BackgroundColor="white" Source="imageOfXamarin.png" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="This message is coming from xaml &#128053;" Tapped="onClickImage">
+
+                    </TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label Grid.Row="2" Text="Click twice me! &#128526;" FontAttributes=" Bold" FontSize="30"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="#3497db" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="onClickLabel" NumberOfTapsRequired="2" CommandParameter="Test2"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+         </ContentPage.Content>
+</ContentPage>
