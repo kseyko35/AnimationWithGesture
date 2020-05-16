@@ -54,13 +54,14 @@ namespace AnimationExample
                     //}
                     await mImage.ScaleTo(1, 250, Easing.CubicIn);
                     await mImage.ScaleTo(1, 1250, Easing.CubicInOut);
+                    mLabel.Opacity = 0;
                     await mImage.LayoutTo(new Rectangle(1, 150, mImage.Width, mImage.Height), 1250, Easing.SpringIn);
                     await mImage.RotateXTo(360, 1250, Easing.Linear);
                     //await DisplayAlert("Title", "Ok", "Cancel");
                     await mRotateButton.FadeTo(1, 250, Easing.Linear);
                     mRotateButton.IsEnabled = true;
                     mGoAnotherPage.IsEnabled = true;
-                    mLabel.Opacity = 0;
+                   
                     await mGoAnotherPage.FadeTo(1, 250, Easing.Linear);
                 } ) 
 
