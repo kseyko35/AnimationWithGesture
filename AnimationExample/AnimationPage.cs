@@ -7,9 +7,18 @@ namespace AnimationExample
         public AnimationPage()
         {
             RelativeLayout layout = new RelativeLayout();
+            Label mLabel = new Label
+            {
+                Text = "Tap the image",
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                FontAttributes = FontAttributes.Bold
+              
+            };
             Image mImage = new Image
             {
-                Source = "visa.png"
+                Source = "visa.png",
+                VerticalOptions = LayoutOptions.Center
             };
 
 
@@ -18,8 +27,17 @@ namespace AnimationExample
                 Text = "Rotater",
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
-                Opacity= 0
+                Opacity= 0,
+                IsEnabled = false
 
+            };
+            Button mGoAnotherPage = new Button
+            {
+                Text = "Go another page",
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                Opacity = 0,
+                IsEnabled= false
             };
    
             mImage.GestureRecognizers.Add(new TapGestureRecognizer // Bu sekilde resmimize tap eventi eklemis olduk
@@ -40,7 +58,10 @@ namespace AnimationExample
                     await mImage.RotateXTo(360, 1250, Easing.Linear);
                     //await DisplayAlert("Title", "Ok", "Cancel");
                     await mRotateButton.FadeTo(1, 250, Easing.Linear);
-
+                    mRotateButton.IsEnabled = true;
+                    mGoAnotherPage.IsEnabled = true;
+                    mLabel.Opacity = 0;
+                    await mGoAnotherPage.FadeTo(1, 250, Easing.Linear);
                 } ) 
 
             } );
@@ -49,6 +70,12 @@ namespace AnimationExample
             
    
             mRotateButton.Clicked += async (sender, args) => { await mImage.RelRotateTo(360, 1000); };
+            mGoAnotherPage.Clicked += async (sender, args) => { await Navigation.PushModalAsync(new SecondPage()); };
+
+            layout.Children.Add(mLabel, Constraint.Constant(0), Constraint.RelativeToParent(
+                parent => { return parent.Height-100;  }), Constraint.RelativeToParent(
+                parent => { return parent.Width; }));
+          
 
             layout.Children.Add(mImage, Constraint.Constant(0) , Constraint.RelativeToParent(
                 parent => { return parent.Height - 50; }), Constraint.RelativeToParent(
@@ -57,6 +84,9 @@ namespace AnimationExample
             layout.Children.Add(mRotateButton,Constraint.Constant(0),
                 Constraint.RelativeToParent(parent => { return parent.Height - 100; }),
                 Constraint.RelativeToParent(parent => { return parent.Width; }));
+            layout.Children.Add(mGoAnotherPage, Constraint.Constant(0), Constraint.RelativeToParent(
+            parent => { return parent.Height-150 ; }), Constraint.RelativeToParent(
+            parent => { return parent.Width; }));
             Content = layout;
         }
 
